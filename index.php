@@ -37,3 +37,23 @@ echo $bike->brake().PHP_EOL;
 echo 'Vitesse vélo après arrêt : '. $bike->getCurrentSpeed().PHP_EOL;
 
 
+/*
+* POO Exceptions
+*/
+$car = new Car("red", 4, "fuel");
+
+//Park Brake ==> true
+$car->setParkBrake(true);
+
+try {
+    $car->start();
+} catch (Exception $e) {
+    echo $e->getMessage();
+    //PArk Brake ==> false
+    $car->setParkBrake(false);
+    $car->start();
+} finally {
+    echo "Ma voiture roule comme un donut \n";
+}
+
+

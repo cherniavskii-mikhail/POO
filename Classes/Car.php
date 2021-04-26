@@ -11,6 +11,7 @@ class Car
     private int $nbSeats;
     private string $energy;
     private int $energyLevel;
+    private bool $hasParkBrake;
 
     /*
     * Constructor
@@ -25,6 +26,14 @@ class Car
     /*
     * Methos for the class Car
     */ 
+
+    public function setParkBrake($hasParkBrake)
+    {
+        $this->hasParkBrake = $hasParkBrake;
+        return $this;
+    }
+
+
     public function forward(): string
     {
         $this->currentSpeed = 10;
@@ -45,7 +54,16 @@ class Car
         $sentence .= "I'm stopped !";
         return $sentence;
     }
-    public function start(){}
+
+
+    public function start()
+    {
+        if($this->getHasParkBrake() === true ){
+            throw new Exception("Le frain a main est actif, veuillez le désactiver ! \n");
+        }else{
+            echo " Park Brake desactivated : You are now driving without Park Brake ! \n";
+        }
+    }
 
 
     /*
@@ -57,8 +75,8 @@ class Car
     public function getNbSeats(): int { return $this->nbSeats; }
     public function getNbEnergy(): string { return $this->energy; }
     public function getEnergyLevel(): int { return $this->energyLevel; }
+    public function getHasParkBrake(): bool { return $this->hasParkBrake;}
 
-     
 }
 
 ?>
