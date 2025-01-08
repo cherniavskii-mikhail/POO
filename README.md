@@ -1,2 +1,2 @@
 # POO
-Make a car and bicyle class 
+Make a car and bicyle class.
